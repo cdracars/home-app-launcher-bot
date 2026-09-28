@@ -1,0 +1,25 @@
+{
+  "name": "home-app-launcher-bot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A Discord launcher for personal web apps.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "register": "tsx src/register-commands.ts"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "discord.js": "^14.25.1",
+    "dotenv": "^16.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}
