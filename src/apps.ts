@@ -26,7 +26,7 @@ export const apps: AppLink[] = [
     description: 'Sort tasks one comparison at a time.',
     url: requiredUrl(
       'TASK_PRIORITIZER_URL',
-      'https://cdracars.github.io/task-prioritizer/'
+      'https://task-prioritizer-one.vercel.app/'
     ),
   },
   {

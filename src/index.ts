@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { Client, Events, GatewayIntentBits } from 'discord.js';
+import { Client, Events, GatewayIntentBits, MessageFlags } from 'discord.js';
 import { apps } from './apps.js';
 import { appLauncher } from './response.js';
 
@@ -19,7 +19,10 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
   const app = apps.find((candidate) => candidate.command === interaction.commandName);
   if (interaction.commandName === 'apps' || app) {
-    await interaction.reply({ ...appLauncher(app), ephemeral: true });
+    await interaction.reply({
+      ...appLauncher(app),
+      flags: MessageFlags.Ephemeral,
+    });
   }
 });
 
