@@ -1,9 +1,6 @@
-export type AppLink = {
-  command: 'tasks' | 'stitch';
-  label: string;
-  description: string;
-  url: string;
-};
+import { defaultApps, type AppLink } from './app-links.js';
+
+export type { AppLink } from './app-links.js';
 
 function requiredUrl(name: string, fallback: string): string {
   const value = process.env[name] || fallback;
@@ -19,23 +16,10 @@ function requiredUrl(name: string, fallback: string): string {
   }
 }
 
-export const apps: AppLink[] = [
-  {
-    command: 'tasks',
-    label: 'Prioritize tasks',
-    description: 'Sort tasks one comparison at a time.',
-    url: requiredUrl(
-      'TASK_PRIORITIZER_URL',
-      'https://task-prioritizer-one.vercel.app/'
-    ),
-  },
-  {
-    command: 'stitch',
-    label: 'Stitch counter',
-    description: 'Open the stitch counter.',
-    url: requiredUrl(
-      'STITCH_COUNTER_URL',
-      'https://cdracars.github.io/stich-shaper/'
-    ),
-  },
-];
+export const apps: AppLink[] = defaultApps.map((app) => ({
+  ...app,
+  url: requiredUrl(
+    app.command === 'tasks' ? 'TASK_PRIORITIZER_URL' : 'STITCH_COUNTER_URL',
+    app.url
+  ),
+}));

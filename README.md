@@ -31,4 +31,18 @@ The app URLs are configurable in `.env`; this prevents hosting details from bein
 
 ## Deployment
 
-This is a long-running Node process. It can run on a machine you already keep on, or later be adapted to Discord's interaction webhooks for a serverless deployment. Keep `.env` private.
+### Local gateway bot
+
+`npm run dev` starts a long-running local process. It goes offline when that computer or process stops.
+
+### Always-on Cloudflare Worker
+
+The Worker implementation receives signed Discord interaction webhooks, so it does not need a permanent server or the Discord bot token. It requires only the Discord application's public key, stored as a Cloudflare Worker secret.
+
+Run the guided setup from the project directory:
+
+```bash
+bash /tmp/home-app-launcher-bot-cloudflare-setup.sh
+```
+
+The wizard deploys the Worker, stores the verification key, and walks through setting the Discord **Interaction Endpoint URL** to `<worker-url>/interactions`. Once that URL is saved successfully, stop the local `npm run dev` process.

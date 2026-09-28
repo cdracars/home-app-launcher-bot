@@ -8,7 +8,9 @@
     "build": "tsc --noEmit",
     "dev": "tsx watch src/index.ts",
     "start": "tsx src/index.ts",
-    "register": "tsx src/register-commands.ts"
+    "register": "tsx src/register-commands.ts",
+    "worker:dev": "wrangler dev",
+    "worker:deploy": "wrangler deploy"
   },
   "engines": {
     "node": ">=20"
@@ -20,6 +22,7 @@
   "devDependencies": {
     "@types/node": "^24.0.0",
     "tsx": "^4.20.3",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "wrangler": "^4.39.0"
   }
 }
