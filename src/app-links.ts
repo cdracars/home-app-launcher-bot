@@ -10,12 +10,12 @@ export const defaultApps: AppLink[] = [
     command: 'tasks',
     label: 'Prioritize tasks',
     description: 'Sort tasks one comparison at a time.',
-    url: 'https://task-prioritizer-one.vercel.app/',
+    url: 'https://task-prioritizer.dracars.com/',
   },
   {
     command: 'stitch',
     label: 'Stitch counter',
     description: 'Open the stitch counter.',
-    url: 'https://cdracars.github.io/stich-shaper/',
+    url: 'https://stitch-shaper.dracars.com/',
   },
 ];
