@@ -1,11 +1,17 @@
 export type AppLink = {
-  command: 'tasks' | 'stitch';
+  command: 'home' | 'tasks' | 'stitch';
   label: string;
   description: string;
   url: string;
 };
 
 export const defaultApps: AppLink[] = [
+  {
+    command: 'home',
+    label: 'Dracars',
+    description: 'Browse projects and tools from Dracars.',
+    url: 'https://dracars.com/',
+  },
   {
     command: 'tasks',
     label: 'Prioritize tasks',
